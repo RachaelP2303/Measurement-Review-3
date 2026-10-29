@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phase 3 NZ Curriculum Measurement Master Test (30 Questions)</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; margin: 0; padding: 20px; color: #2d3748; }
+    .container { max-width: 780px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+    .page { display: none; }
+    .page.active { display: block; }
+    h1 { color: #2b6cb0; text-align: center; margin-bottom: 10px; }
+    h2 { color: #2d3748; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; font-size: 20px; }
+    label { font-weight: bold; display: block; margin-top: 15px; }
+    input[type="text"], select { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #cbd5e0; border-radius: 6px; box-sizing: border-box; font-size: 16px; }
+    .option-btn { display: block; width: 100%; padding: 14px 18px; margin: 12px 0; text-align: left; background: #edf2f7; border: 2px solid #cbd5e0; border-radius: 8px; cursor: pointer; font-size: 16px; transition: all 0.2s; }
+    .option-btn:hover { background: #e2e8f0; }
+    .option-btn.selected { background: #ebf8ff; border-color: #3182ce; font-weight: bold; }
+    .nav-btns { display: flex; justify-content: space-between; margin-top: 25px; }
+    button.btn { padding: 12px 24px; background: #3182ce; color: white; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; }
+    button.btn:disabled { background: #cbd5e0; cursor: not-allowed; }
+    .img-container { text-align: center; margin: 20px 0; background: #ffffff; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; }
+    .img-container img { max-width: 100%; height: auto; max-height: 250px; border-radius: 6px; display: block; margin: 0 auto; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 15px; }
+    .data-table th, .data-table td { border: 1px solid #cbd5e0; padding: 8px 12px; text-align: center; }
+    .data-table th { background-color: #ebf8ff; color: #2b6cb0; }
+    .progress-bar { width: 100%; background: #e2e8f0; height: 10px; border-radius: 5px; margin-bottom: 20px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #3182ce; width: 0%; transition: width 0.3s; }
+    .feedback-box { background: #f7fafc; border-left: 4px solid #3182ce; padding: 20px; margin-top: 20px; border-radius: 6px; }
+    .badge { display: inline-block; padding: 6px 12px; background: #48bb78; color: white; border-radius: 20px; font-weight: bold; margin-bottom: 10px; }
+    .teacher-section { margin-top: 30px; padding-top: 20px; border-top: 2px dashed #cbd5e0; text-align: center; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
+
+  <!-- START PAGE -->
+  <div class="page active" id="page-0">
+    <h1>Phase 3 Maths: Comprehensive Measurement Challenge</h1>
+    <p>Welcome! Please enter your details below to start the assessment.</p>
+    <label for="student-name">Your Full Name:</label>
+    <input type="text" id="student-name" placeholder="e.g. Alex Tui">
+    
+    <label for="student-year">Your Year Level:</label>
+    <select id="student-year">
+      <option value="">-- Select Year Level --</option>
+      <option value="Year 7">Year 7</option>
+      <option value="Year 8">Year 8</option>
+    </select>
+    
+    <div class="nav-btns" style="justify-content: flex-end;">
+      <button class="btn" onclick="startTest()">Start Test &#8594;</button>
+    </div>
+  </div>
+
+  <form id="test-form">
+    <!-- Q1 -->
+    <div class="page" id="page-1">
+      <h2>Question 1 of 30</h2>
+      <p>Which metric prefix represents 1,000 times the base unit (e.g. 1,000 metres)?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(1, 'A')">A) centi-</button>
+      <button type="button" class="option-btn" onclick="selectOpt(1, 'B')">B) milli-</button>
+      <button type="button" class="option-btn" onclick="selectOpt(1, 'C')">C) kilo-</button>
+      <button type="button" class="option-btn" onclick="selectOpt(1, 'D')">D) deci-</button>
+    </div>
+
+    <!-- Q2 -->
+    <div class="page" id="page-2">
+      <h2>Question 2 of 30</h2>
+      <p>Liquid volume can be measured in millilitres (mL) or cubic centimetres (cm³). How many cm³ are in 15 mL?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(2, 'A')">A) 15 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(2, 'B')">B) 150 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(2, 'C')">C) 1,500 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(2, 'D')">D) 1.5 cm³</button>
+    </div>
+
+    <!-- Q3 -->
+    <div class="page" id="page-3">
+      <h2>Question 3 of 30</h2>
+      <p>A square tabletop has a side length of 9 cm. What is the area of the table surface?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(3, 'A')">A) 36 cm²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(3, 'B')">B) 81 cm²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(3, 'C')">C) 18 cm²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(3, 'D')">D) 72 cm²</button>
+    </div>
+
+    <!-- Q4 -->
+    <div class="page" id="page-4">
+      <h2>Question 4 of 30</h2>
+      <div class="img-container">
+        <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcS-9q5_75KVZuaKghJmUizWEYmEuCG7e4h_KV_yebffexeG4tTgE4GeX-vZO3XZKinPTUk91GNp1lzDxO0" alt="Cube Diagram">
+      </div>
+      <p>A wooden block cube has edges measuring 4 cm each. What is its volume?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(4, 'A')">A) 16 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(4, 'B')">B) 64 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(4, 'C')">C) 32 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(4, 'D')">D) 12 cm³</button>
+    </div>
+
+    <!-- Q5 (FIXED) -->
+    <div class="page" id="page-5">
+      <h2>Question 5 of 30</h2>
+      <div class="img-container">
+        <img src="https://cmds-test.vedantu.com/prod/question-sets/3e05fcb7-01ff-4306-a177-1e08e65b29112517503267508511946.png" alt="Triangle Diagram">
+      </div>
+      <p>Find the area of a triangle with a base of 8 cm and a height of 6 cm.</p>
+      <button type="button" class="option-btn" onclick="selectOpt(5, 'A')">A) 48 cm²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(5, 'B')">B) 24 cm²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(5, 'C')">C) 14 cm²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(5, 'D')">D) 32 cm²</button>
+    </div>
+
+    <!-- Q6 -->
+    <div class="page" id="page-6">
+      <h2>Question 6 of 30</h2>
+      <div class="img-container">
+        <img src="https://images.nagwa.com/figures/explainers/856149132560/1.svg" alt="3D Rectangular Prism Box Diagram">
+      </div>
+      <p>A rectangular prism box is 8 cm long, 3 cm wide, and 5 cm high. What is its volume?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(6, 'A')">A) 120 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(6, 'B')">B) 16 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(6, 'C')">C) 70 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(6, 'D')">D) 240 cm³</button>
+    </div>
+
+    <!-- Q7 -->
+    <div class="page" id="page-7">
+      <h2>Question 7 of 30</h2>
+      <p>A garden mat is shaped like a parallelogram with a base of 9 m and a vertical height of 4 m. What is its area?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(7, 'A')">A) 18 m²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(7, 'B')">B) 26 m²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(7, 'C')">C) 36 m²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(7, 'D')">D) 72 m²</button>
+    </div>
+
+    <!-- Q8 -->
+    <div class="page" id="page-8">
+      <h2>Question 8 of 30</h2>
+      <div class="img-container">
+        <img src="https://mathangelwebsitestorage.blob.core.windows.net/mathangel-lesson-images/geometry-measures/area-of-a-trapezium/1)%20What%20is%20a%20Trapezium.webp" alt="Trapezium Diagram">
+      </div>
+      <p>A trapezium board has parallel top/bottom sides of 8 cm and 12 cm, with a height of 5 cm. What is its area?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(8, 'A')">A) 50 cm²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(8, 'B')">B) 100 cm²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(8, 'C')">C) 480 cm²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(8, 'D')">D) 25 cm²</button>
+    </div>
+
+    <!-- Q9 -->
+    <div class="page" id="page-9">
+      <h2>Question 9 of 30</h2>
+      <p>A triangular prism tent has a front triangle with base 3 m and height 2 m. The length of the tent is 5 m. What is its volume?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(9, 'A')">A) 30 m³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(9, 'B')">B) 15 m³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(9, 'C')">C) 10 m³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(9, 'D')">D) 20 m³</button>
+    </div>
+
+    <!-- Q10 -->
+    <div class="page" id="page-10">
+      <h2>Question 10 of 30</h2>
+      <p>How many square millimetres (mm²) are in 4 square centimetres (cm²)?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(10, 'A')">A) 40 mm²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(10, 'B')">B) 400 mm²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(10, 'C')">C) 4,000 mm²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(10, 'D')">D) 0.4 mm²</button>
+    </div>
+
+    <!-- Q11 -->
+    <div class="page" id="page-11">
+      <h2>Question 11 of 30</h2>
+      <p>Knowing that 1 m³ = 1,000 Litres, how many Litres of water are needed to fill a 2.5 m³ garden pool?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(11, 'A')">A) 250 L</button>
+      <button type="button" class="option-btn" onclick="selectOpt(11, 'B')">B) 2,500 L</button>
+      <button type="button" class="option-btn" onclick="selectOpt(11, 'C')">C) 25,000 L</button>
+      <button type="button" class="option-btn" onclick="selectOpt(11, 'D')">D) 25 L</button>
+    </div>
+
+    <!-- Q12 -->
+    <div class="page" id="page-12">
+      <h2>Question 12 of 30</h2>
+      <p>A square paddock has a total perimeter of 240 metres. What is the length of one side?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(12, 'A')">A) 120 m</button>
+      <button type="button" class="option-btn" onclick="selectOpt(12, 'B')">B) 60 m</button>
+      <button type="button" class="option-btn" onclick="selectOpt(12, 'C')">C) 40 m</button>
+      <button type="button" class="option-btn" onclick="selectOpt(12, 'D')">D) 80 m</button>
+    </div>
+
+    <!-- Q13 -->
+    <div class="page" id="page-13">
+      <h2>Question 13 of 30</h2>
+      <p>A triangle has an area of 35 cm² and a height of 7 cm. What is the length of its base?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(13, 'A')">A) 5 cm</button>
+      <button type="button" class="option-btn" onclick="selectOpt(13, 'B')">B) 10 cm</button>
+      <button type="button" class="option-btn" onclick="selectOpt(13, 'C')">C) 14 cm</button>
+      <button type="button" class="option-btn" onclick="selectOpt(13, 'D')">D) 2.5 cm</button>
+    </div>
+
+    <!-- Q14 -->
+    <div class="page" id="page-14">
+      <h2>Question 14 of 30</h2>
+      <p>A cube box has a volume of 27 cm³. What is the length of one of its edges?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(14, 'A')">A) 9 cm</button>
+      <button type="button" class="option-btn" onclick="selectOpt(14, 'B')">B) 3 cm</button>
+      <button type="button" class="option-btn" onclick="selectOpt(14, 'C')">C) 6 cm</button>
+      <button type="button" class="option-btn" onclick="selectOpt(14, 'D')">D) 4.5 cm</button>
+    </div>
+
+    <!-- Q15 -->
+    <div class="page" id="page-15">
+      <h2>Question 15 of 30</h2>
+      <p>A house floorplan combines a rectangle (6 m x 4 m = 24 m²) and an adjoining triangle (base 4 m, height 3 m = 6 m²). What is the total combined area?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(15, 'A')">A) 30 m²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(15, 'B')">B) 36 m²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(15, 'C')">C) 72 m²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(15, 'D')">D) 18 m²</button>
+    </div>
+
+    <!-- Q16 -->
+    <div class="page" id="page-16">
+      <h2>Question 16 of 30</h2>
+      <p>A set of wooden stairs is built from two block prisms: Block 1 volume is 30 cm³ and Block 2 volume is 18 cm³. What is the total volume?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(16, 'A')">A) 540 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(16, 'B')">B) 48 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(16, 'C')">C) 12 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(16, 'D')">D) 96 cm³</button>
+    </div>
+
+    <!-- Q17 -->
+    <div class="page" id="page-17">
+      <h2>Question 17 of 30</h2>
+      <p>Convert 3 hours and 20 minutes into total minutes.</p>
+      <button type="button" class="option-btn" onclick="selectOpt(17, 'A')">A) 320 minutes</button>
+      <button type="button" class="option-btn" onclick="selectOpt(17, 'B')">B) 180 minutes</button>
+      <button type="button" class="option-btn" onclick="selectOpt(17, 'C')">C) 200 minutes</button>
+      <button type="button" class="option-btn" onclick="selectOpt(17, 'D')">D) 220 minutes</button>
+    </div>
+
+    <!-- Q18 -->
+    <div class="page" id="page-18">
+      <h2>Question 18 of 30</h2>
+      <p>Look at the bus schedule below:</p>
+      <table class="data-table">
+        <tr><th>Stop</th><th>Bus 1</th><th>Bus 2</th></tr>
+        <tr><td>School Gate</td><td>8:05 AM</td><td>8:35 AM</td></tr>
+        <tr><td>Town Centre</td><td>8:22 AM</td><td>8:52 AM</td></tr>
+        <tr><td>Sports Park</td><td>8:40 AM</td><td>9:10 AM</td></tr>
+      </table>
+      <p>How long does Bus 1 take to travel from School Gate to Sports Park?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(18, 'A')">A) 35 minutes</button>
+      <button type="button" class="option-btn" onclick="selectOpt(18, 'B')">B) 17 minutes</button>
+      <button type="button" class="option-btn" onclick="selectOpt(18, 'C')">C) 40 minutes</button>
+      <button type="button" class="option-btn" onclick="selectOpt(18, 'D')">D) 30 minutes</button>
+    </div>
+
+    <!-- Q19 -->
+    <div class="page" id="page-19">
+      <h2>Question 19 of 30</h2>
+      <p>A sports game lasts for 1½ hours (1.5 hours). If it begins at 2:15 PM, what time does it finish?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(19, 'A')">A) 3:45 PM</button>
+      <button type="button" class="option-btn" onclick="selectOpt(19, 'B')">B) 3:30 PM</button>
+      <button type="button" class="option-btn" onclick="selectOpt(19, 'C')">C) 4:00 PM</button>
+      <button type="button" class="option-btn" onclick="selectOpt(19, 'D')">D) 3:15 PM</button>
+    </div>
+
+    <!-- Q20 -->
+    <div class="page" id="page-20">
+      <h2>Question 20 of 30</h2>
+      <p>A marathon runner completed 4.2 kilometres. How many metres is this distance?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(20, 'A')">A) 420 m</button>
+      <button type="button" class="option-btn" onclick="selectOpt(20, 'B')">B) 42,000 m</button>
+      <button type="button" class="option-btn" onclick="selectOpt(20, 'C')">C) 4,200 m</button>
+      <button type="button" class="option-btn" onclick="selectOpt(20, 'D')">D) 42 m</button>
+    </div>
+
+    <!-- Q21 -->
+    <div class="page" id="page-21">
+      <h2>Question 21 of 30</h2>
+      <p>Which unit is most appropriate for measuring the mass of a Year 8 student's backpack?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(21, 'A')">A) Milligrams (mg)</button>
+      <button type="button" class="option-btn" onclick="selectOpt(21, 'B')">B) Kilograms (kg)</button>
+      <button type="button" class="option-btn" onclick="selectOpt(21, 'C')">C) Tonnes (t)</button>
+      <button type="button" class="option-btn" onclick="selectOpt(21, 'D')">D) Litres (L)</button>
+    </div>
+
+    <!-- Q22 -->
+    <div class="page" id="page-22">
+      <h2>Question 22 of 30</h2>
+      <p>At 6:00 AM, the temperature was 4°C. By 1:00 PM, it rose to 19°C. What was the temperature increase?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(22, 'A')">A) 23°C</button>
+      <button type="button" class="option-btn" onclick="selectOpt(22, 'B')">B) 15°C</button>
+      <button type="button" class="option-btn" onclick="selectOpt(22, 'C')">C) 12°C</button>
+      <button type="button" class="option-btn" onclick="selectOpt(22, 'D')">D) 14°C</button>
+    </div>
+
+    <!-- Q23 -->
+    <div class="page" id="page-23">
+      <h2>Question 23 of 30</h2>
+      <p>An angle measures 135 degrees. What type of angle is this?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(23, 'A')">A) Acute angle</button>
+      <button type="button" class="option-btn" onclick="selectOpt(23, 'B')">B) Right angle</button>
+      <button type="button" class="option-btn" onclick="selectOpt(23, 'C')">C) Obtuse angle</button>
+      <button type="button" class="option-btn" onclick="selectOpt(23, 'D')">D) Reflex angle</button>
+    </div>
+
+    <!-- Q24 -->
+    <div class="page" id="page-24">
+      <h2>Question 24 of 30</h2>
+      <p>A square garden bed has a perimeter of 32 m. What is the area of the garden bed?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(24, 'A')">A) 64 m²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(24, 'B')">B) 16 m²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(24, 'C')">C) 128 m²</button>
+      <button type="button" class="option-btn" onclick="selectOpt(24, 'D')">D) 32 m²</button>
+    </div>
+
+    <!-- Q25 -->
+    <div class="page" id="page-25">
+      <h2>Question 25 of 30</h2>
+      <p>A milk bottle holds 2 Litres of liquid. Express this capacity in cubic centimetres (cm³).</p>
+      <button type="button" class="option-btn" onclick="selectOpt(25, 'A')">A) 200 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(25, 'B')">B) 2,000 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(25, 'C')">C) 20,000 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(25, 'D')">D) 20 cm³</button>
+    </div>
+
+    <!-- Q26 -->
+    <div class="page" id="page-26">
+      <h2>Question 26 of 30</h2>
+      <p>Below are 100m sprint completion times for four students:</p>
+      <table class="data-table">
+        <tr><th>Student</th><th>Time</th></tr>
+        <tr><td>Liam</td><td>14.8 seconds</td></tr>
+        <tr><td>Maya</td><td>13.9 seconds</td></tr>
+        <tr><td>Noah</td><td>15.1 seconds</td></tr>
+        <tr><td>Sofia</td><td>14.2 seconds</td></tr>
+      </table>
+      <p>Who ran the fastest sprint?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(26, 'A')">A) Liam</button>
+      <button type="button" class="option-btn" onclick="selectOpt(26, 'B')">B) Maya</button>
+      <button type="button" class="option-btn" onclick="selectOpt(26, 'C')">C) Noah</button>
+      <button type="button" class="option-btn" onclick="selectOpt(26, 'D')">D) Sofia</button>
+    </div>
+
+    <!-- Q27 -->
+    <div class="page" id="page-27">
+      <h2>Question 27 of 30</h2>
+      <p>A parallelogram has an area of 48 cm² and a base length of 8 cm. What is its height?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(27, 'A')">A) 6 cm</button>
+      <button type="button" class="option-btn" onclick="selectOpt(27, 'B')">B) 12 cm</button>
+      <button type="button" class="option-btn" onclick="selectOpt(27, 'C')">C) 4 cm</button>
+      <button type="button" class="option-btn" onclick="selectOpt(27, 'D')">D) 8 cm</button>
+    </div>
+
+    <!-- Q28 -->
+    <div class="page" id="page-28">
+      <h2>Question 28 of 30</h2>
+      <p>A toy building is composed of a rectangular prism base (volume = 120 cm³) and a triangular prism roof (volume = 40 cm³). What is the total volume of the toy building?</p>
+      <button type="button" class="option-btn" onclick="selectOpt(28, 'A')">A) 160 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(28, 'B')">B) 4,800 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(28, 'C')">C) 80 cm³</button>
+      <button type="button" class="option-btn" onclick="selectOpt(28, 'D')">D) 200 cm³</button>
+    </div>
+
+    <!-- Q29 -->
+    <div class="page" id="page-29">
+      <h2>Question 29 of 30</h2>
+      <p>A swimmer completes a lap in 195 seconds. Express this time duration in minutes and seconds.</p>
+      <button type="button" class="option-btn" onclick="selectOpt(29, 'A')">A) 3 minutes 15 seconds</button>
+      <button type="button" class="option-btn" onclick="selectOpt(29, 'B')">B) 2 minutes 55 seconds</button>
+      <button type="button" class="option-btn" onclick="selectOpt(29, 'C')">C) 3 minutes 45 seconds</button>
+      <button type="button" class="option-btn" onclick="selectOpt(29, 'D')">D) 2 minutes 15 seconds</button>
+    </div>
+
+    <!-- Q30 -->
+    <div class="page" id="page-30">
+      <h2>Question 30 of 30 (Word Problem)</h2>
+      <p>A water tank with a rectangular base of 2 m by 1 m is filled to a height of 1.5 m. How many Litres of water are inside the tank? (Hint: V = lwh and 1 m³ = 1,000 L)</p>
+      <button type="button" class="option-btn" onclick="selectOpt(30, 'A')">A) 300 L</button>
+      <button type="button" class="option-btn" onclick="selectOpt(30, 'B')">B) 3,000 L</button>
+      <button type="button" class="option-btn" onclick="selectOpt(30, 'C')">C) 30,000 L</button>
+      <button type="button" class="option-btn" onclick="selectOpt(30, 'D')">D) 30 L</button>
+    </div>
+  </form>
+
+  <!-- NAVIGATION BUTTONS -->
+  <div class="nav-btns" id="quiz-nav" style="display:none;">
+    <button class="btn" id="prev-btn" onclick="changePage(-1)">&#8592; Previous</button>
+    <button class="btn" id="next-btn" onclick="changePage(1)">Next &#8594;</button>
+  </div>
+
+  <!-- RESULTS PAGE -->
+  <div class="page" id="page-results">
+    <h1>Assessment Completed!</h1>
+    <div class="feedback-box">
+      <div id="status-badge" class="badge">At Phase 3</div>
+      <p><strong>Student Name:</strong> <span id="res-name"></span> (<span id="res-year"></span>)</p>
+      <p><strong>Total Score:</strong> <span id="res-score"></span> / 30 (<span id="res-percent"></span>%)</p>
+      <h3>Curriculum Feedback & Diagnosis:</h3>
+      <p id="res-feedback-text"></p>
+    </div>
+  </div>
+
+  <!-- TEACHER BUTTON -->
+  <div class="teacher-section">
+    <button class="btn" style="background:#718096;" onclick="teacherAccess()">Teacher Access (PIN)</button>
+  </div>
+</div>
+
+<script>
+  let currentPage = 0;
+  const totalPages = 30;
+  const userAnswers = {};
+  
+  // Updated Answer Key (Q5 is now B)
+  const correctAnswers = {
+    1: 'C', 2: 'A', 3: 'B', 4: 'B', 5: 'B',
+    6: 'A', 7: 'C', 8: 'A', 9: 'B', 10: 'B',
+    11: 'B', 12: 'B', 13: 'B', 14: 'B', 15: 'A',
+    16: 'B', 17: 'C', 18: 'A', 19: 'A', 20: 'C',
+    21: 'B', 22: 'B', 23: 'C', 24: 'A', 25: 'B',
+    26: 'B', 27: 'A', 28: 'A', 29: 'A', 30: 'B'
+  };
+
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwEJCBveHXG61e_i-UaBRNh9jZKmvKXRmeSoIKFsT75NlgGojgGH8aENG79dhznm-2P/exec";
+
+  function startTest() {
+    const name = document.getElementById('student-name').value.trim();
+    const year = document.getElementById('student-year').value;
+    if (!name || !year) {
+      alert("Please enter your name and select your year level before starting.");
+      return;
+    }
+    document.getElementById('page-0').classList.remove('active');
+    currentPage = 1;
+    document.getElementById('page-1').classList.add('active');
+    document.getElementById('quiz-nav').style.display = 'flex';
+    updateProgress();
+  }
+
+  function selectOpt(qNum, option) {
+    userAnswers[qNum] = option;
+    const btns = document.querySelectorAll('#page-' + qNum + ' .option-btn');
+    btns.forEach(b => b.classList.remove('selected'));
+    event.target.classList.add('selected');
+  }
+
+  function changePage(dir) {
+    if (dir === 1 && !userAnswers[currentPage]) {
+      alert("Please choose an answer before going to the next question.");
+      return;
+    }
+
+    document.getElementById('page-' + currentPage).classList.remove('active');
+    currentPage += dir;
+
+    if (currentPage > totalPages) {
+      document.getElementById('quiz-nav').style.display = 'none';
+      submitTest();
+      return;
+    }
+
+    document.getElementById('page-' + currentPage).classList.add('active');
+    updateProgress();
+  }
+
+  function updateProgress() {
+    document.getElementById('prev-btn').disabled = (currentPage <= 1);
+    const percent = Math.round((currentPage / totalPages) * 100);
+    document.getElementById('progress').style.width = percent + '%';
+  }
+
+  function submitTest() {
+    let score = 0;
+    const qResults = {};
+    for (let i = 1; i <= 30; i++) {
+      const isCorrect = userAnswers[i] === correctAnswers[i];
+      if (isCorrect) score++;
+      qResults['q' + i] = isCorrect ? 'Correct' : 'Incorrect (' + userAnswers[i] + ')';
+    }
+
+    const percentage = Math.round((score / 30) * 100);
+    let level = "";
+    let feedback = "";
+
+    if (score >= 24) {
+      level = "Above Phase 3 (Strong Mastery)";
+      feedback = "Outstanding effort! You demonstrate excellent mastery across all Phase 3 measurement areas, including composite shape areas/volumes, complex metric conversions, and multi-step duration problems.";
+    } else if (score >= 16) {
+      level = "At Phase 3 (Consolidating)";
+      feedback = "Great work! You sit comfortably within Phase 3 measurement. Focus on reviewing composite shape decomposition and converting between squared/cubed metric units (cm² to mm² or m³ to Litres) to reach top accuracy.";
+    } else {
+      level = "Working Towards Phase 3";
+      feedback = "Good try! You are currently working towards Phase 3 expectations. Keep practicing basic area formulas (like triangles and parallelograms), cube/rectangular prism volumes, and reading timetable schedules step-by-step.";
+    }
+
+    document.getElementById('res-name').textContent = document.getElementById('student-name').value;
+    document.getElementById('res-year').textContent = document.getElementById('student-year').value;
+    document.getElementById('res-score').textContent = score;
+    document.getElementById('res-percent').textContent = percentage;
+    document.getElementById('status-badge').textContent = level;
+    document.getElementById('res-feedback-text').textContent = feedback;
+    document.getElementById('page-results').classList.add('active');
+
+    fetch(APPS_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: document.getElementById('student-name').value,
+        year: document.getElementById('student-year').value,
+        score: score,
+        percentage: percentage,
+        curriculumLevel: level,
+        ...qResults,
+        feedback: feedback
+      })
+    });
+  }
+
+  function teacherAccess() {
+    const pin = prompt("Enter Teacher Security PIN:");
+    if (pin === "1335") {
+      alert("PIN Accepted! Opening Google Sheet database.");
+      window.open("https://docs.google.com", "_blank");
+    } else {
+      alert("Incorrect PIN.");
+    }
+  }
+</script>
+</body>
+</html>
